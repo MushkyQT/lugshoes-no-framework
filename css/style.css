@@ -1,0 +1,289 @@
+:root {
+  --primary-color: #142e2c; /* Lugshoes dark */
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #ffffff;
+  color: var(--primary-color);
+}
+
+a {
+  text-decoration: none;
+  cursor: default;
+  pointer-events: none;
+  color: var(--primary-color);
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  text-align: center;
+}
+
+/* Shoe image style */
+.product-image {
+  padding: 10vh 0 20px;
+}
+
+.product-image img {
+  width: 85%;
+}
+
+
+/* Product info styles */
+/* Headline styles */
+.product-info-headline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-info-headline h1 {
+  font-weight: 600;
+  font-size: 36px;
+  padding-bottom: 5px;
+}
+
+.product-info-headline .pricetag {
+  padding: 4px 14px;
+  border-radius: 6px;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* Options styles */
+.product-info-options {
+  padding: 40px 0;
+}
+
+/* Colors */
+.product-info-colors {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 40px;
+}
+
+.color {
+  font-size: 2.5rem;
+  display: flex;
+  cursor: pointer;
+}
+
+.radio--button {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.product-info-colors input {
+  display: none;
+}
+
+#color-1 {
+  background-color: #65CA8D;
+}
+
+#color-2 {
+  background-color: #56AEFF;
+}
+
+#color-3 {
+  background-color: #FFE380;
+}
+
+#color-4 {
+  background-color: #FF5858;
+}
+
+.product-info-colors input:checked + .radio--button {
+  background-color: white !important;
+}
+
+.product-info-colors input:checked + #color-1 {
+  border: 0.25em solid #65CA8D;
+}
+
+.product-info-colors input:checked + #color-2 {
+  border: 0.25em solid #56AEFF;
+}
+
+.product-info-colors input:checked ~ #color-3 {
+  border: 0.25em solid #FFE380;
+}
+
+.product-info-colors input:checked ~ #color-4 {
+  border: 0.25em solid #FF5858;
+}
+
+/* Sizes */
+.product-info-sizes {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  column-gap: 7%;
+}
+
+.product-info-sizes li {
+  border: 3px solid var(--primary-color);
+  border-radius: 6px;
+  font-size: 24px;
+  font-weight: 600;
+  width: 80px;
+  cursor: pointer;
+}
+
+/* Product description */
+.product-info-description {
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  margin: 0 0 40px 0;
+}
+
+/* Cart actions */
+.product-actions {
+  display: flex;
+  width: 90%;
+  max-width: 315px;
+  text-align: center;
+  margin: 0 auto 40px;
+  cursor: pointer;
+}
+
+.add-to-cart {
+  width: 100%;
+  background: #65CA8D;
+  border-radius: 30px;
+  font-size: 24px;
+  font-weight: 600;
+  color: white;
+  padding: 12px 0;
+}
+
+/* Utils */
+.selected {
+  background-color: var(--primary-color);
+}
+
+.selected a {
+  color: white;
+}
+
+.disabled {
+  opacity: 0.4;
+}
+
+.btn-disabled {
+  cursor: not-allowed;
+}
+
+.btn-disabled .add-to-cart {
+  background-color: #d4d4d4;
+}
+
+.break {
+  flex-basis: 100%;
+  height: 0;
+}
+
+
+/* Media queries */
+@media only screen and (min-width: 768px) {
+  .product {
+    padding: 30vh 0;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .break {
+    display: none;
+  }
+
+  .product-image {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 50%;
+    padding: 0 40px 0 0;
+  }
+
+  .product-image img {
+    width: initial;
+    max-width: 425px;
+  }
+
+  .product-info {
+    width: 50%;
+    padding-left: 40px;
+  }
+
+  .product-info-headline {
+    flex-direction: row;
+    padding-bottom: 30px;
+  }
+
+  .product-info-headline h1 {
+    padding: 0 20px 0 0;
+    font-size: 48px;
+  }
+
+  .product-info-headline .pricetag {
+    font-size: 24px;
+  }
+
+  .product-info-options {
+    padding: 0;
+  }
+
+  .product-info-colors {
+    justify-content: initial;
+    padding-bottom: 40px;
+  }
+
+  label {
+    margin-right: 30px;
+  }
+
+  .product-info-sizes {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 0;
+    padding-bottom: 40px;
+  }
+
+  .product-info-sizes li {
+    margin-right: 15px;
+  }
+
+  .product-info-description {
+    max-width: 500px;
+    font-size: 18px;
+  }
+
+  .product-actions {
+    margin: 0 auto;
+    width: 315px;
+    height: 60px;
+  }
+
+}
