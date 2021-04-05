@@ -3,19 +3,24 @@ let xmlhttp = new XMLHttpRequest()
 xmlhttp.onreadystatechange = function () {
   if (this.readyState === 4 && this.status === 200) {
     data = JSON.parse(this.responseText)
-    document.querySelector('.product-info-headline h1').innerHTML = data.product.title
-    document.querySelector('.product-info-description').innerHTML = data.product.description
-    let radios = document.querySelectorAll('input[type="radio"]')
-    radios.forEach(function (radio) {
-      if (radio.checked) {
-        requestShoesByColor(radio.value)
-      }
-      radio.addEventListener('click', function () {
-        requestShoesByColor(this.value)
-      })
-    })
+    pageReady(data) // Hoist data into outer functional scope (global here)
   }
 }
+
+function pageReady(data) {
+  document.querySelector('.product-info-headline h1').innerHTML = data.product.title
+  document.querySelector('.product-info-description').innerHTML = data.product.description
+  let radios = document.querySelectorAll('input[type="radio"]')
+  radios.forEach(function (radio) {
+    if (radio.checked) {
+      requestShoesByColor(radio.value)
+    }
+    radio.addEventListener('click', function () {
+      requestShoesByColor(this.value)
+    })
+  })
+}
+
 
 function setClass(el, className, fnName) {
   for (let i = 0; i < el.length; i++) {
